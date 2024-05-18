@@ -1,3 +1,4 @@
+from typing import Self
 import pygame
 
 # Constants
@@ -107,30 +108,30 @@ pos, current_cell, up, right, bottom, left = reset_cells()
 fill_count, p1_score, p2_score = reset_score()
 turn, players, current_player, next_turn = reset_player()
 
-        self.sides = [False, False, False, False]  # Tracks whether each side of the cell is filled
-        self.winner = None  # Stores the winner of the cell (if any)
+Self.sides = [False, False, False, False]  # Tracks whether each side of the cell is filled
+Self.winner = None  # Stores the winner of the cell (if any)
 
-    def check_win(self, winner):
-        """
-        Check if a player has won by filling all four sides of the cell.
-        """
-        if not self.winner:
-            if self.sides == [True]*4:
-                self.winner = winner
-                return 1  # Indicate that the cell has been won
-        return 0  # Indicate that the cell has not been won
+def check_win(self, winner):
+    """
+    Check if a player has won by filling all four sides of the cell.
+    """
+    if not self.winner:
+        if self.sides == [True]*4:
+            self.winner = winner
+            return 1  # Indicate that the cell has been won
+    return 0  # Indicate that the cell has not been won
 
-    def update(self, surface):
-        """
-        Update the visual representation of the cell on the game window.
-        """
-        if self.winner:
-            # Draw the cell with the winning player's color
-            pygame.draw.rect(surface, GREEN if self.winner == 'X' else RED, self.rect)
-        for index, side in enumerate(self.sides):
-            if side:
-                # Draw filled sides of the cell
-                pygame.draw.line(surface, WHITE, self.edges[index][0], self.edges[index][1], 2)
+def update(self, surface):
+    """
+    Update the visual representation of the cell on the game window.
+    """
+    if self.winner:
+        # Draw the cell with the winning player's color
+        pygame.draw.rect(surface, GREEN if self.winner == 'X' else RED, self.rect)
+    for index, side in enumerate(self.sides):
+        if side:
+            # Draw filled sides of the cell
+            pygame.draw.line(surface, WHITE, self.edges[index][0], self.edges[index][1], 2)
 
 # Initialize game variables
 cells = []
